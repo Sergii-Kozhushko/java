@@ -3,6 +3,10 @@
    Date of creation: 20-Nov-2022 
 */
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArraysMore {
     private static int stringCompare(String s1, String s2){
         //метод сравнивает две строки по алфавиту. Если первая строка раньше по алфавиту,
@@ -40,15 +44,80 @@ public class ArraysMore {
         }
         return arrayString;
     }
+    private static int maxValueArray(int [] arr1){
+        int max = arr1[0];
+        for (int i:arr1){
+            if (i > max ) max = i;
+        }
+        return max;
+    }
 
+    private static int minValueArray(int [] arr1){
+        int min = arr1[0];
+        for (int i:arr1){
+            if (i < min ) min = i;
+        }
+        return min;
+    }
+    private static double avgValueArray(int [] arr){
+        int sum = 0;
+        for (int i:arr){
+            sum += i;
+        }
+        return (double) sum / arr.length;
+    }
+    public static int [] deleteNumFromArray(int [] arr, int num){
+        int temp;
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == num){
+                if (i != arr.length-1){
+                    //arr[i] = arr[i+1];
+                    for (int j=i;j < arr.length-1; j++){
+                        temp = arr[j];
+                        arr[j] = arr[j+1];
+                    }
+                    arr[arr.length-1] = 0;
+
+                }
+                else arr[i] = 0;
+            }
+        }
+        return arr;
+    }
+    //
+    private static int findStrInArray(String [] str, String toFind){
+        int n = 0;
+        for (int i = 0 ; i <str.length; i++){
+            if (str[i].indexOf(toFind) != -1) n++;
+        }
+        return n;
+    }
 
 
     public static void main(String[] args) {
-        String[] str = {"ypsilon", "aa", "cat", "dog", "Bibop", "oma"};
+        //1. Сортировка массива строк по афлавиту
+        String[] str = {"ypsilon", "aa", "cat", "dog", "Bibop", "oma","Bibika"};
 
+        System.out.print("Alphabetically sorted String array: ");
         for (String i : sortStringArray(str)){
             System.out.print(i+" ");
         }
+        System.out.println();
+
+
+        //2. Нахождение макс, мин, ср значения в инт-массиве
+        int [] arr1 = {1, 2, 3, 4, 5, 10};
+        System.out.println("Max Value " + maxValueArray(arr1));
+        System.out.println("Min Value " + minValueArray(arr1));
+        System.out.println("Avg Value " + avgValueArray(arr1));
+
+        //5. Удаление заданного числа из массива
+        System.out.println(Arrays.toString(deleteNumFromArray(arr1,2)));
+
+        //4.Нахождение заданной строки в массиве строк
+        String wordToFind = "Bib";
+        System.out.println("Word `" + wordToFind + "` was founded " + findStrInArray(str,wordToFind) +" times in array " + Arrays.deepToString(str));
+
 
     }
 }
