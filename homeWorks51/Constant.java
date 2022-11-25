@@ -8,7 +8,7 @@ Programmed by Sergii Kozhushko
 */
 
 public class Constant {
-    static int ELFPOWER = 90;
-    static int ELFCHARISMA = 80;
-    static int ELFMAGIC = 80;
+    static int final ELFPOWER = 90;
+    static int final ELFCHARISMA = 80;
+    static boolean final ELFMAGIC = true;
 }
