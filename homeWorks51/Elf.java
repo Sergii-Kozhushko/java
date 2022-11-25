@@ -4,11 +4,14 @@ package game.hero;/*
 */
 
 public class Elf{
-    int id;
-    String name;
-    int age;
-    int power;//сила
-    int accuracy;
-    int stamina;
-}
+    private int id;
+    private String name;
+    private int age;
+    private int power;//сила
+    private int accuracy;
+    private int stamina;
 
+    public static void main(String[] args) {
+        Constant co1 = new Constant();
+    }
+}
